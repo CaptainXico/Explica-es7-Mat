@@ -38,8 +38,8 @@
       ></a-image>
 
       <!-- Cubes to click -->
-      <a-box id="cubeP" color="brown" position="1 2 -5"></a-box>
-      <a-box id="cubeR" color="blue" position="-1 2 -5"></a-box>
+      <a-box id="cubeP" color="brown" position="2 2 -5" src="https://cdn.glitch.global/cdb4824a-1400-428d-bab6-830b60362fbf/regraspot.png"></a-box>
+      <a-box id="cubeR" color="blue" position="-2 2 -5" src="https://cdn.glitch.global/cdb4824a-1400-428d-bab6-830b60362fbf/regraspoteraiz.png"></a-box>
 
       <!-- Create light -->
       <a-entity
@@ -50,16 +50,19 @@
         position="4 50 -116"
         scale="10 10 10"
       ></a-entity>
+      
+      <a-box id="cube1" color="blue" position="0 2 -5" src="https://cdn.glitch.global/79f5a73b-6f54-440b-b96c-6a35e86bf4d5/inicio.png"></a-box>
     </a-scene>
 
     <script>
       // When the window is fully loaded, run the function
       window.onload = function () {
-        // Get the cubeP, cubeR, imageP, and imageR elements
+        // Get the cubeP, cubeR, imageP, imageR, and cube1 elements
         var cubeP = document.getElementById("cubeP");
         var cubeR = document.getElementById("cubeR");
         var imageP = document.getElementById("imageP");
         var imageR = document.getElementById("imageR");
+        var cube1 = document.getElementById("cube1");
 
         // Add a click event listener to cubeP
         cubeP.addEventListener("click", function () {
@@ -74,7 +77,14 @@
           var isVisible = !imageR.getAttribute("visible");
           imageR.setAttribute("visible", isVisible);
         });
+
+        // Add click event listener to cube1
+        cube1.addEventListener("click", function () {
+          // Redirect to another A-Frame project
+          window.location.href = "https://captainxico.github.io/Explica-es7-Mat/";
+        });
       };
     </script>
   </body>
 </html>
+
