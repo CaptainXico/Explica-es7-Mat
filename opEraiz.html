@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Pop num clic regras potências&raízes</title>
+    <meta name="description" content="Clica nos cubos para aparecer as regras" />
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js"></script>
+  </head>
+  <body>
+    <a-scene background="color: #ECECEC" environment="preset: goldmine">
+      <!-- Camera with cursor -->
+      <a-entity
+        id="camera"
+        position="0 1.6 0"
+        camera
+        look-controls
+        wasd-controls
+      >
+        <a-cursor color="#333" maxdistance="30"></a-cursor>
+      </a-entity>
+
+      <!-- Images to show/hide -->
+      <a-image
+        id="imageP"
+        material="src:https://cdn.glitch.global/a379a0e4-c968-4340-8889-776d5b7d280a/RegrasPot%C3%AAncias.jpeg?v=1715084112875; transparent:true"
+        position="3.5 4.5 -5"
+        scale="5 5 0"
+        visible="false"
+      ></a-image>
+      
+      <a-image
+        id="imageR"
+        material="src:https://cdn.glitch.global/a379a0e4-c968-4340-8889-776d5b7d280a/RaizesRegras.jpeg?v=1715084112395; transparent:true"
+        position="-3.5 4.5 -5"
+        scale="5 5 0"
+        visible="false"
+      ></a-image>
+
+      <!-- Cubes to click -->
+      <a-box id="cubeP" color="brown" position="1 2 -5"></a-box>
+      <a-box id="cubeR" color="blue" position="-1 2 -5"></a-box>
+
+      <!-- Create light -->
+      <a-entity
+        id="lightSphere"
+        geometry="primitive: sphere"
+        material="color: cyan; shader: flat"
+        light="type: point"
+        position="4 50 -116"
+        scale="10 10 10"
+      ></a-entity>
+    </a-scene>
+
+    <script>
+      // When the window is fully loaded, run the function
+      window.onload = function () {
+        // Get the cubeP, cubeR, imageP, and imageR elements
+        var cubeP = document.getElementById("cubeP");
+        var cubeR = document.getElementById("cubeR");
+        var imageP = document.getElementById("imageP");
+        var imageR = document.getElementById("imageR");
+
+        // Add a click event listener to cubeP
+        cubeP.addEventListener("click", function () {
+          // Toggle visibility of imageP
+          var isVisible = !imageP.getAttribute("visible");
+          imageP.setAttribute("visible", isVisible);
+        });
+
+        // Add a click event listener to cubeR
+        cubeR.addEventListener("click", function () {
+          // Toggle visibility of imageR
+          var isVisible = !imageR.getAttribute("visible");
+          imageR.setAttribute("visible", isVisible);
+        });
+      };
+    </script>
+  </body>
+</html>
