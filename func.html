@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>numeros racionais</title>
+    <meta name="description" content="Click Cube to Redirect" />
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js"></script>
+  </head>
+  <body>
+
+   <script>
+      document.addEventListener("keydown", function (e) {
+        let camera = document.querySelector("#camera");
+
+        if (e.key == "Shift") {
+          camera.setAttribute("wasd-controls", "acceleration", 400);
+        }
+      });
+
+      document.addEventListener("keyup", function (e) {
+        let camera = document.querySelector("#camera");
+
+        if (e.key == "Shift") {
+          camera.setAttribute("wasd-controls", "acceleration", 50);
+        }
+      });
+    </script>
+
+    <a-scene background="color: #ECECEC" environment="preset: forest">
+      
+      <!-- Camera with cursor -->
+      <a-entity
+        id="camera"
+        position="0 1.6 0"
+        camera
+        look-controls
+        wasd-controls
+      >
+        <a-cursor color="#333" maxdistance="30"></a-cursor>
+      </a-entity>
+
+      <!-- Cube to click -->
+      <a-box id="cube1" color="blue" position="0 2 -5" src="https://cdn.glitch.global/79f5a73b-6f54-440b-b96c-6a35e86bf4d5/inicio.png" ></a-box>
+
+
+      <!-- Create light -->
+      <a-entity
+        id="lightSphere"
+        geometry="primitive: sphere"
+        material="color: cyan; shader: flat"
+        light="type: point"
+        position="4 50 50"
+        scale="10 10 10"
+      ></a-entity>
+
+      <!-- Create conjuntos -->
+      <a-asset-item
+        id="conjuntos"
+        src="https://cdn.glitch.global/b613c97e-e644-4fc1-a488-e2f617c908a2/DeCD.glb?v=1715938621759"
+      ></a-asset-item>
+      <a-entity
+        id="Conjunto"
+        gltf-model="#conjuntos"
+        scale="3 3 3"
+        position="4 1.5 -2"
+        rotation= "0 -45 0"
+      ></a-entity>
+
+    </a-scene>
+
+    <script>
+      // When the window is fully loaded, run the function
+      window.onload = function () {
+        // Get the cube elements
+        var cube1 = document.getElementById("cube1");
+
+        // Add click event listeners to each cube
+        cube1.addEventListener("click", function () {
+          // Redirect to another A-Frame project
+          window.location.href = "https://href-on-a-click.glitch.me/";
+        });
+      };
+    </script>
+  </body>
+</html>
